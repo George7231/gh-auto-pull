@@ -1,10 +1,10 @@
 import hmac
 import subprocess
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, json
 
 app = Flask(__name__)
-app.config.from_json('settings.json')
+app.config.from_file('settings.json', json.load)
 
 @app.route('/github_webhook', methods=['POST'])
 def github_hook():
