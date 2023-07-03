@@ -1,6 +1,0 @@
-[uwsgi]
-plugin=/usr/lib/uwsgi/python_plugin.so
-http=:9090
-wsgi-file=main.py
-virtualenv=/path/to/virtualenv
-callable=app

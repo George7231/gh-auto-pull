@@ -15,11 +15,12 @@ def github_hook():
         return jsonify({}), 413
     hashhex = hmac.new(secret, request.get_data(), digestmod='sha1').hexdigest()
     if hmac.compare_digest(hashhex, signature):
-        proc = subprocess.Popen("./pull.sh")
+        proc = subprocess.Popen("sudo ./pull.sh")
+        print("Running pull.sh")
         proc.wait()
         return jsonify({}), 200
     else:
         return jsonify({}), 403
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=9090)
