@@ -1,3 +1,4 @@
 #!/bin/sh
-
-git --git-dir=/path/to/git/dir --work-tree=/path/to/work/tree pull
+cd /home/user/repository
+git pull --force git@github.com:user/repository.git
+sleep 10
